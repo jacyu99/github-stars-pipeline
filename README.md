@@ -1,25 +1,33 @@
-# User Requirements for Github Repository Investment Project
-To assess investment potential of all Github repositories, the client would like to be able to identify fast growing repositories as well as analyze a specific repository.
+# Overview
+This project aims to assess the investment potential of all Github repositories. The goal is to be able to identify fast growing repositories as well as analyze a specific repository. The data will be delivered in the format of a SQL database which will update at a daily frequency.
 
-## Metrics
+# Metrics
 
-The metrics/data points that the client would like to analyze is as follows:
+The metrics/data points we would like to analyze are as follows:
 
 1. Growth rate of stars
 2. Growth rate of commits
 3. Custom Analysis
 
-The client will use the growth rate of stars and growth rate of commits as metrics to decide which repositories to invest in. The client would also like to be able to do Ad hoc custom analysis to conduct specific, tailored analyses to assess investment potential. The final product needs to be flexible enough to provide this functionality.
+The growth rate of stars and growth rate of commits are the metrics we will use to decide which repositories to invest in. The final product also needs to have the functionality to conduct Ad hoc custom analysis. We can better assess investment potential with specific, tailored analyses.
 
-## Data Source
+# Data Source
 The choice for the data source was between the Github API and GH Archive.
 
-The pros of the Github API are that it provides live fresh data and no 3rd party is involved. The con of Github API is that there is complex load logic; we would end up exceeding the alotted number of API calls. The pros of GH archive is that it has simple load logic; it is easier for us to gather all the necessary data. The cons of GH archive are that it refreshes every hour (is not the most up-to-date data) and a 3rd party is involved.
+### Github API
+#### Pros:
+* Live, fresh data
+* No 3rd party involved
+  
+#### Cons:
+* Complex load logic; we would exceed the alotted number of API calls
 
-Ultimately, we chose our data source to be GH Archive due to the feasibility issue that the Github API introduces. As the client only requires a daily refresh on the data, the refresh frequency of 1 hour is acceptable. The potential issues that could arise due to the fact that the data is from a 3rd party can be mitigated with data quality tests.
+### GH Archive
+#### Pros:
+*  Simple load logic; it is easier for us to gather all the necessary data
 
-## Data Format
-The client requests that the data be delivered in the format of a SQL database.
+#### Cons:
+*  Refreshes every hour (not the most up-to-date data)
+*  3rd party is involved
 
-## Update Frequency
-The client requests that the data be updated daily.
+Ultimately, we chose our data source to be GH Archive due to the feasibility issue that the Github API introduces. As we only need the data to be updated daily, the refresh frequency of 1 hour is acceptable. The potential issues that could arise due to the fact that the data is from a 3rd party can be mitigated with data quality tests.
