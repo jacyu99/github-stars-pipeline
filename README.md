@@ -31,3 +31,48 @@ The choice for the data source was between the Github API and GH Archive.
 *  3rd party is involved
 
 Ultimately, we chose our data source to be GH Archive due to the feasibility issue that the Github API introduces. As we only need the data to be updated daily, the refresh frequency of 1 hour is acceptable. The potential issues that could arise due to the fact that the data is from a 3rd party can be mitigated with data quality tests.
+
+# Models
+
+For this project we will be using the Kimball Model. It is a framework to designing data structures which construct several star schemas to fulfill various reporting needs. The Kimball Model can be broken down into three aspects:
+* Facts: the measurements that result from a business process event (almost always numeric)
+* Dimensions: the information that provides who, what, where, when, why, and how context
+* The grain: establishes what a single fact table row represents
+
+### Facts and Dimensions Models
+#### Facts Fields
+* Stars
+  * event_id
+  * repo_id
+  * user_id
+  * event_date
+* Commits
+  * event_id
+  * repo_id
+  * user_id
+  * event_date
+
+#### Dimensions Fields
+* Repositories
+  * repo_id
+  * repo_name
+  * owner_login
+* Users
+  * user_id
+  * login
+
+ 
+### Sample SQL Code for Common Use Cases
+#### Stars:
+SELECT month, yoy_growth
+
+FROM repo_stars_growth
+
+WHERE repo_name = "plotly/plotly.py";
+
+#### Commits:
+SELECT month, yoy_growth
+
+FROM repo_commits_growth
+
+WHERE repo_name = "plotly/plotly.py";
