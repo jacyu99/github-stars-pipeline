@@ -1,15 +1,15 @@
 # Overview
-This project aims to assess the investment potential of all Github repositories. The goal is to be able to identify fast growing repositories as well as analyze a specific repository. The data will be delivered in the format of a SQL database which will update at a daily frequency.
+This project aims to measure stars and commits of all Github repositories. The goal is to be able to identify fast growing repositories as well as analyze a specific repository. The data is delivered in the format of a SQL database which updates at a daily frequency.
 
 # Metrics
 
-The metrics/data points we would like to analyze are as follows:
+The metrics/data points we analyze are as follows:
 
 1. Growth rate of stars
 2. Growth rate of commits
-3. Custom Analysis
+3. Custom analysis
 
-The growth rate of stars and growth rate of commits are the metrics we will use to decide which repositories to invest in. The final product also needs to have the functionality to conduct Ad hoc custom analysis. We can better assess investment potential with specific, tailored analyses.
+The growth rate of stars and growth rate of commits are the metrics we will use to decide which repositories are growing the fastest. The final product also needs to have the functionality to conduct Ad hoc custom analysis for more specific, tailored exploration.
 
 # Data Source
 The choice for the data source was between the Github API and GH Archive.
@@ -40,24 +40,24 @@ For this project we will be using the Kimball Model. It is a framework to design
 * The grain: establishes what a single fact table row represents
 
 ### Facts and Dimensions Models
-#### Facts Fields
-* Stars
+#### Fact Tables
+* fact_stars
   * event_id
   * repo_id
   * user_id
   * event_date
-* Commits
+* fact_commits
   * event_id
   * repo_id
   * user_id
   * event_date
 
-#### Dimensions Fields
-* Repositories
+#### Dimension Tables
+* dim_repositories
   * repo_id
   * repo_name
   * owner_login
-* Users
+* dim_users
   * user_id
   * login
 
@@ -66,13 +66,13 @@ For this project we will be using the Kimball Model. It is a framework to design
 #### Stars:
 SELECT month, yoy_growth
 
-FROM repo_stars_growth
+FROM fact_repo_stars_monthly
 
 WHERE repo_name = "plotly/plotly.py";
 
 #### Commits:
 SELECT month, yoy_growth
 
-FROM repo_commits_growth
+FROM fact_repo_commits_monthly
 
 WHERE repo_name = "plotly/plotly.py";
