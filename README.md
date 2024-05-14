@@ -41,38 +41,43 @@ For this project we will be using the Kimball Model. It is a framework to design
 
 ### Facts and Dimensions Models
 #### Fact Tables
-* fact_stars
-  * event_id
-  * repo_id
-  * user_id
-  * event_date
-* fact_commits
-  * event_id
-  * repo_id
-  * user_id
-  * event_date
+* `fact_stars`
+  * `event_id`
+  * `repo_id`
+  * `user_id`
+  * `event_date`
+* `fact_commits`
+  * `event_id`
+  * `repo_id`
+  * `user_id`
+  * `event_date`
 
 #### Dimension Tables
-* dim_repositories
-  * repo_id
-  * repo_name
-  * owner_login
-* dim_users
-  * user_id
-  * login
+* `dim_repositories`
+  * `repo_id`
+  * `repo_name`
+  * `owner_login`
+* `dim_users`
+  * `user_id`
+  * `login`
 
  
 ### Sample SQL Code for Common Use Cases
 #### Stars:
+```
 SELECT month, yoy_growth
 
 FROM fact_repo_stars_monthly
 
 WHERE repo_name = "plotly/plotly.py";
+```
 
 #### Commits:
+```
 SELECT month, yoy_growth
 
 FROM fact_repo_commits_monthly
 
 WHERE repo_name = "plotly/plotly.py";
+```
+
