@@ -1,5 +1,5 @@
 SELECT 
-    DATE_TRUNC('day', event_date) AS date,
+    date,
     repo_id,
     user AS user_id
 FROM {{ ref("stg_gharchive") }}
