@@ -1,0 +1,24 @@
+# name, version, and profile name of the project
+name: 'github_stars'
+version: '1.0.0'
+profile: 'github_stars'
+
+# paths for components
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# directories to be removed by `dbt clean`
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+# model configurations
+models:
+  transform:
+    # Config indicated by + and applies to all files under models/example/
+    example:
+      +materialized: view
