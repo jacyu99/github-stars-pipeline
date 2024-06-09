@@ -1,8 +1,8 @@
 {% macro fact_event_type(event_type) -%} 
-  select 
-    event_date, 
+  SELECT 
+    event_date AS date, 
     repo_id, 
     user 
-  from {{ ref('stg_gharchive') }} 
-  where event_type = '{{ event_type }}' 
+  FROM {{ ref('stg_gharchive') }} 
+  WHERE event_type = '{{ event_type }}' 
 {%- endmacro %}
