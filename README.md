@@ -81,3 +81,7 @@ FROM fact_repo_commits_monthly
 WHERE repo_name = "plotly/plotly.py";
 ```
 
+# Sample Query
+![Cumulative Monthly Stars Plot](notebooks/cumu_monthly_stars.png)
+
+**Sample Query**: Plot showing the cumulative stars per month for each repository.
