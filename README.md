@@ -81,3 +81,7 @@ FROM fact_repo_commits_monthly
 WHERE repo_name = "plotly/plotly.py";
 ```
 
+# Graphs
+![DBT DAG](docs/dbt_dag.png)
+
+Graph showing the DBT directed acyclic graph.
