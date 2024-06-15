@@ -1,4 +1,4 @@
-SELECT DISTINCT
+SELECT
 	repo_id,
 	repo_name,
 	min(event_date) AS start_date,
