@@ -1,10 +1,15 @@
 # Overview
 This project aims to measure stars and commits of all Github repositories. The goal is to be able to identify fast growing repositories as well as analyze a specific repository. The data is delivered in the format of a SQL database which updates at a daily frequency.
 
+# Lineage Graph
+![DBT DAG](docs/dbt_dag.png)
+
+Graph showing the DBT directed acyclic graph.
+
 # Sample Query
 ![Cumulative Monthly Stars Plot](notebooks/cumu_monthly_stars.png)
 
-**Sample Query**: Plot showing the cumulative stars per month for each repository.
+Plot showing the cumulative stars per month for each repository.
 
 # Metrics
 
