@@ -6,6 +6,11 @@ This project aims to measure stars and commits of all Github repositories. The g
 
 Graph showing the DBT directed acyclic graph.
 
+# Sample Query
+![Cumulative Monthly Stars Plot](notebooks/cumu_monthly_stars.png)
+
+Plot showing the cumulative stars per month for each repository.
+
 # Metrics
 
 The metrics/data points we analyze are as follows:
